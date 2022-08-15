@@ -26,4 +26,22 @@ function createGalleryBox(galleryItems) {
     })
     .join("");
 }
-console.log(createGalleryBox);
+
+galleryBox.addEventListener("click", onGalleryBox);
+
+const createNewSrc = basicLightbox.create(`<img src=""/>`);
+
+function onGalleryBox(evt) {
+  evt.preventDefault();
+
+  const isGalleryImage = evt.target.classList.contains("gallery__image");
+
+  if (!isGalleryImage) return;
+  console.log(evt.target);
+
+  let selectedPicture = evt.target.dataset.source;
+
+  const modalPic = createNewSrc.element().querySelector("img");
+  modalPic.src = selectedPicture;
+  createNewSrc.show();
+}
