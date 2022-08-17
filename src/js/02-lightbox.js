@@ -12,9 +12,11 @@ galleryBox.insertAdjacentHTML("beforeend", creatImgGallery);
 function createGalleryBox(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `<a class="gallery__item" href="${original}">
+      return `<li class="gallery__item">
+      <a class="gallery__item" href="${original}">
         <img class="gallery__image" src="${preview}" alt="${description}" />
       </a>
+      </li>
       `;
     })
     .join("");
